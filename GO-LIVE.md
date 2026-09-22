@@ -102,6 +102,25 @@ usually takes a few minutes and can take up to an hour.
 
 ---
 
+## Step 3a — swap the pre-launch URLs (easy to forget)
+
+While the real domain still serves the squatter's page, `index.html` deliberately
+points at the GitHub Pages address instead. Without that, texting the link would
+pull a preview image off the fake site, and Google would be told the fake page
+is the canonical one.
+
+Once the domain is live, change all five back to `https://hallsplumbingllc.com/`:
+
+- the `canonical` link
+- `og:url`
+- `og:image`
+- `"url"` in the JSON-LD block
+- `"image"` in the JSON-LD block
+
+`robots.txt` and `sitemap.xml` already point at the real domain — leave them.
+
+---
+
 ## Step 4 — check it properly
 
 ```
