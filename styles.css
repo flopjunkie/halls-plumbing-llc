@@ -107,11 +107,6 @@ h1, h2, h3, h4 {
   transition: opacity .6s var(--ease), transform .6s var(--ease);
 }
 .reveal.shown { opacity: 1; transform: none; }
-.hero-copy .reveal:nth-child(2) { transition-delay: .05s; }
-.hero-copy .reveal:nth-child(3) { transition-delay: .10s; }
-.hero-copy .reveal:nth-child(4) { transition-delay: .15s; }
-.hero-copy .reveal:nth-child(5) { transition-delay: .20s; }
-.hero-card.reveal { transition-delay: .12s; }
 .cards .card:nth-child(2) { transition-delay: .06s; }
 .cards .card:nth-child(3) { transition-delay: .12s; }
 .cards .card:nth-child(5) { transition-delay: .06s; }
@@ -280,9 +275,14 @@ h1, h2, h3, h4 {
   overflow: hidden;
   isolation: isolate;
 }
+/* Glows are painted as gradients rather than blurred elements. A blur() layer
+   this large is costly to composite and stalls first paint on cheap phones. */
 .hero-bg {
   position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(168deg, var(--navy-700) 0%, var(--navy-900) 55%, var(--navy-950) 100%);
+  background:
+    radial-gradient(52% 58% at 88% 4%, rgba(145,189,234,.26) 0%, rgba(145,189,234,0) 62%),
+    radial-gradient(46% 52% at 2% 100%, rgba(195,194,196,.14) 0%, rgba(195,194,196,0) 66%),
+    linear-gradient(168deg, var(--navy-700) 0%, var(--navy-900) 55%, var(--navy-950) 100%);
 }
 .hero-bg::after {
   content: '';
@@ -293,20 +293,6 @@ h1, h2, h3, h4 {
   background-size: 74px 74px;
   mask-image: radial-gradient(85% 75% at 28% 26%, #000 0%, transparent 76%);
   -webkit-mask-image: radial-gradient(85% 75% at 28% 26%, #000 0%, transparent 76%);
-}
-.glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-  opacity: .55;
-}
-.glow-a {
-  width: 620px; height: 620px; right: -140px; top: -220px;
-  background: radial-gradient(circle, rgba(145,189,234,.42) 0%, transparent 68%);
-}
-.glow-b {
-  width: 520px; height: 520px; left: -180px; bottom: -260px;
-  background: radial-gradient(circle, rgba(195,194,196,.24) 0%, transparent 70%);
 }
 
 .hero-inner {
@@ -691,7 +677,6 @@ h1, h2, h3, h4 {
   .cta-actions .btn, .hero-actions .btn { width: 100%; }
   .call-bar { display: flex; }
   .site-footer { padding-bottom: 88px; }
-  .glow { filter: blur(70px); opacity: .42; }
 }
 
 @media (prefers-reduced-motion: reduce) {
