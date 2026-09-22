@@ -684,3 +684,18 @@ h1, h2, h3, h4 {
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
 }
+
+/* "Also:" line under the services grid */
+.also {
+  margin: 30px 0 0;
+  font-size: 1rem;
+  color: var(--silver-600);
+  max-width: 74ch;
+  padding: 18px 22px;
+  border: 1px dashed var(--silver-300);
+  border-radius: var(--r-md);
+  background: var(--silver-050);
+}
+.also strong { color: var(--ink); }
+.also a { color: var(--sky-dim); font-weight: 600; }
+.also a:hover { color: var(--ink); }
