@@ -66,6 +66,23 @@ step if you need one; do not retune the anchors.
 The four unconfirmed claims are advertising under Virginia contractor rules,
 which prohibit misleading adverts. Worth one phone call.
 
+
+## IMPORTANT when editing styles.css
+
+**Bump the version number on the stylesheet link in `index.html`.**
+
+```html
+<link rel="stylesheet" href="styles.css?v=2" />   <!-- make it v=3, v=4 ... -->
+```
+
+Without that, phones that have visited before keep using the stylesheet they
+already hold for up to four hours and simply do not see the change. This is
+exactly what happened on 23 Sep — the mobile menu shipped and was invisible on
+Josh's phone because it still had the old styling.
+
+The `_headers` file keeps the page itself always revalidating, so a bumped
+version is picked up immediately.
+
 ## Still to do
 
 - [ ] **Jerry repoints his Google listing's Website box** to this site. Free, two
