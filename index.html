@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,500;0,600;0,700;1,700;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=3" />
+<link rel="stylesheet" href="styles.css?v=4" />
 
 <script type="application/ld+json">
 {
@@ -74,7 +74,6 @@
       <a href="#reviews">Reviews</a>
       <a href="#area">Service Area</a>
       <a href="#faq">FAQ</a>
-      <a class="nav-call" href="tel:+14344293005">Call (434) 429&#8209;3005</a>
     </nav>
     <div class="header-cta">
       <span class="open-now"><span class="dot"></span>Open 24 hours</span>
@@ -89,6 +88,8 @@
     </div>
   </div>
 </header>
+
+<div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
 
 <main id="main">
   <span id="top"></span>
@@ -530,6 +531,9 @@
     if (e.target.closest('a')) setMenu(false);
   });
   addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+  // tapping the dimmed area behind the menu closes it
+  document.getElementById('navBackdrop').addEventListener('click', () => setMenu(false));
+  document.getElementById('navBackdrop').addEventListener('click', () => setMenu(false));
   // tapping anywhere outside closes it
   addEventListener('click', (e) => {
     if (!hdr.contains(e.target)) setMenu(false);

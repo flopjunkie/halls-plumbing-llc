@@ -751,7 +751,6 @@ h1, h2, h3, h4 {
 /* The hamburger only exists below the desktop breakpoint. Above it the nav
    sits inline in the header as normal and this button is not rendered. */
 .nav-toggle { display: none; }
-.nav-call { display: none; }
 
 @media (max-width: 1000px) {
   .nav-toggle {
@@ -812,18 +811,6 @@ h1, h2, h3, h4 {
   .header-nav a::after { display: none; }
   .header-nav a:active { color: #fff; }
 
-  .nav-call {
-    display: block;
-    margin-top: 14px;
-    text-align: center;
-    border-bottom: 0 !important;
-    background: linear-gradient(180deg, #FFFFFF 0%, #E3E4E8 42%, var(--silver-300) 100%);
-    color: var(--navy-900) !important;
-    border-radius: var(--r-sm);
-    padding: 15px 18px !important;
-    font-family: var(--font-head);
-    font-weight: 700;
-  }
 
   .site-header { position: sticky; }
 }
@@ -879,3 +866,30 @@ h1, h2, h3, h4 {
   transition: color .2s var(--ease), border-color .2s var(--ease);
 }
 .built-by a:hover { color: var(--sky); border-bottom-color: var(--sky); }
+
+/* ── menu backdrop ─────────────────────────────────────────────────────── */
+/* Without this the panel just stops and the page carries on underneath it,
+   which reads as clutter rather than as a menu. */
+.nav-backdrop { display: none; }
+
+@media (max-width: 1000px) {
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 40;              /* under the header (50), over everything else */
+    background: rgba(7, 11, 20, .68);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s var(--ease);
+  }
+  .site-header.nav-open ~ .nav-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  /* the sticky call bar would otherwise sit on top of the dimmed page */
+  .site-header.nav-open ~ .call-bar { opacity: 0; pointer-events: none; }
+  .call-bar { transition: opacity .25s var(--ease); }
+}
