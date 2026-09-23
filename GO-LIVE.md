@@ -1,3 +1,17 @@
+# ✅ DONE — went live 23 September 2026
+
+**https://hallsplumbingllc.com** is live on Cloudflare Pages. The steps below
+are kept as the record of how it was done, and for the next client site.
+
+What actually happened differed from the plan in one way: hosting moved from
+GitHub Pages to **Cloudflare Pages**, because GitHub's terms are a grey area
+for a business site. See the  note.
+
+**Still outstanding:** Jerry repointing his Google Business Profile Website box,
+and his sign-off on the four advertising claims and the founding year.
+
+---
+
 # Go live on hallsplumbingllc.com
 
 Everything below waits on one thing: **being added to Jerry's GoDaddy account.**
