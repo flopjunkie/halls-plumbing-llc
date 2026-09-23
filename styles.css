@@ -867,3 +867,15 @@ h1, h2, h3, h4 {
   .card-wide { grid-template-columns: 1fr; gap: 16px; }
   .card-wide .card-icon { margin-bottom: 0; }
 }
+
+/* ── build credit ──────────────────────────────────────────────────────── */
+/* Quiet on purpose. Nothing here should compete with the call button. */
+.built-by { color: var(--silver-600); }
+.built-by a {
+  color: var(--silver-400);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(195,194,196,.22);
+  padding-bottom: 1px;
+  transition: color .2s var(--ease), border-color .2s var(--ease);
+}
+.built-by a:hover { color: var(--sky); border-bottom-color: var(--sky); }
