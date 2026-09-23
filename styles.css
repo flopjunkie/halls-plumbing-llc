@@ -115,18 +115,6 @@ h1, h2, h3, h4 {
 .trust-item:nth-child(3) { transition-delay: .12s; }
 .trust-item:nth-child(4) { transition-delay: .18s; }
 
-/* ── preview note (delete before launch) ───────────────────────────────── */
-.preview-note {
-  background: var(--navy-950);
-  color: var(--silver-500);
-  font-size: .72rem;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  text-align: center;
-  padding: 7px 16px;
-  font-family: var(--font-head);
-  font-weight: 500;
-}
 
 /* ── buttons ───────────────────────────────────────────────────────────── */
 .btn {
@@ -628,7 +616,6 @@ h1, h2, h3, h4 {
   display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between;
   font-size: .82rem; color: var(--silver-600);
 }
-.footer-note { font-style: italic; }
 
 /* ── sticky mobile call bar ────────────────────────────────────────────── */
 .call-bar {
