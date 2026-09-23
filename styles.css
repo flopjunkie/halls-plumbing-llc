@@ -645,7 +645,6 @@ h1, h2, h3, h4 {
   .areas { grid-template-columns: 1fr 1fr; }
   .area-note { grid-column: 1 / -1; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
-  .header-nav { display: none; }
 }
 
 @media (max-width: 640px) {
@@ -746,4 +745,89 @@ h1, h2, h3, h4 {
 @media (max-width: 640px) {
   .wells { padding-block: 64px; }
   .wells-copy .btn { width: 100%; }
+}
+
+/* ── mobile menu ───────────────────────────────────────────────────────── */
+/* The hamburger only exists below the desktop breakpoint. Above it the nav
+   sits inline in the header as normal and this button is not rendered. */
+.nav-toggle { display: none; }
+.nav-call { display: none; }
+
+@media (max-width: 1000px) {
+  .nav-toggle {
+    display: inline-grid;
+    place-items: center;
+    width: 46px; height: 46px;
+    border: 1px solid rgba(195,194,196,.28);
+    border-radius: var(--r-sm);
+    background: rgba(195,194,196,.07);
+    cursor: pointer;
+    flex: none;
+    transition: background .2s var(--ease), border-color .2s var(--ease);
+  }
+  .nav-toggle:hover { background: rgba(195,194,196,.14); border-color: var(--silver-400); }
+
+  .bars { display: grid; gap: 5px; width: 20px; }
+  .bars i {
+    display: block; height: 2px; width: 100%; border-radius: 2px;
+    background: var(--silver-200);
+    transition: transform .28s var(--ease), opacity .2s var(--ease);
+  }
+  .nav-toggle[aria-expanded="true"] .bars i:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] .bars i:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] .bars i:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* the panel itself */
+  .header-nav {
+    position: absolute;
+    left: 0; right: 0; top: 100%;
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 6px 20px 18px;
+    background: var(--navy-950);
+    border-bottom: 1px solid rgba(195,194,196,.18);
+    box-shadow: 0 22px 44px rgba(0,0,0,.5);
+    /* closed state */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity .25s var(--ease), transform .25s var(--ease), visibility .25s;
+  }
+  .site-header.nav-open .header-nav {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .header-nav a {
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: var(--silver-200);
+    padding: 15px 4px;
+    border-bottom: 1px solid rgba(195,194,196,.12);
+  }
+  .header-nav a::after { display: none; }
+  .header-nav a:active { color: #fff; }
+
+  .nav-call {
+    display: block;
+    margin-top: 14px;
+    text-align: center;
+    border-bottom: 0 !important;
+    background: linear-gradient(180deg, #FFFFFF 0%, #E3E4E8 42%, var(--silver-300) 100%);
+    color: var(--navy-900) !important;
+    border-radius: var(--r-sm);
+    padding: 15px 18px !important;
+    font-family: var(--font-head);
+    font-weight: 700;
+  }
+
+  .site-header { position: sticky; }
+}
+
+@media (max-width: 640px) {
+  .nav-toggle { width: 42px; height: 42px; }
 }

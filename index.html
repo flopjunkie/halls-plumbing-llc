@@ -68,12 +68,13 @@
     <a class="brand" href="#top" aria-label="Hall's Plumbing, LLC home">
       <img src="assets/logo.png" alt="Hall's Plumbing, LLC" />
     </a>
-    <nav class="header-nav" aria-label="Main">
+    <nav class="header-nav" id="headerNav" aria-label="Main">
       <a href="#services">Services</a>
       <a href="#wells">Wells</a>
       <a href="#reviews">Reviews</a>
       <a href="#area">Service Area</a>
       <a href="#faq">FAQ</a>
+      <a class="nav-call" href="tel:+14344293005">Call (434) 429&#8209;3005</a>
     </nav>
     <div class="header-cta">
       <span class="open-now"><span class="dot"></span>Open 24 hours</span>
@@ -81,6 +82,10 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1z"/></svg>
         <span>(434) 429-3005</span>
       </a>
+      <button class="nav-toggle" id="navToggle" type="button"
+              aria-label="Menu" aria-expanded="false" aria-controls="headerNav">
+        <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
     </div>
   </div>
 </header>
@@ -489,6 +494,30 @@
   const onScroll = () => hdr.classList.toggle('is-stuck', window.scrollY > 12);
   onScroll();
   addEventListener('scroll', onScroll, { passive: true });
+
+  // mobile menu
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('headerNav');
+  const setMenu = (open) => {
+    hdr.classList.toggle('nav-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  toggle.addEventListener('click', () => {
+    setMenu(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+  // tapping a link closes it, so the anchor jump isn't hidden behind the panel
+  nav.addEventListener('click', (e) => {
+    if (e.target.closest('a')) setMenu(false);
+  });
+  addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+  // tapping anywhere outside closes it
+  addEventListener('click', (e) => {
+    if (!hdr.contains(e.target)) setMenu(false);
+  });
+  // if the window grows to desktop width, drop the open state
+  matchMedia('(min-width: 1001px)').addEventListener('change', (e) => {
+    if (e.matches) setMenu(false);
+  });
 
   // gentle reveal on scroll — skipped entirely if the visitor prefers less motion
   const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
