@@ -5,7 +5,13 @@ are kept as the record of how it was done, and for the next client site.
 
 What actually happened differed from the plan in one way: hosting moved from
 GitHub Pages to **Cloudflare Pages**, because GitHub's terms are a grey area
-for a business site. See the  note.
+for a business site. Steps 2 and 3 below describe the GitHub route and are kept
+only as history — they are not how the site is served today.
+
+**How it is actually hosted now:** Cloudflare Pages project `halls-plumbing-llc`
+in Josh's own Cloudflare account, deploying automatically from the `main` branch
+of `flopjunkie/halls-plumbing-llc`. The domain stays registered in Jerry's
+GoDaddy account.
 
 **Still outstanding:** Jerry repointing his Google Business Profile Website box,
 and his sign-off on the four advertising claims and the founding year.
