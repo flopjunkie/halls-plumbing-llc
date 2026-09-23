@@ -1,0 +1,21 @@
+# The site is a handful of small files. Correctness beats shaving a request,
+# so the page and its styling always check with the server before being reused.
+# Images and the favicon rarely change and can be held.
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/styles.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/*
+  Cache-Control: public, max-age=86400
+
+/robots.txt
+  Cache-Control: public, max-age=3600
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
