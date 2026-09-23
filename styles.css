@@ -831,3 +831,39 @@ h1, h2, h3, h4 {
 @media (max-width: 640px) {
   .nav-toggle { width: 42px; height: 42px; }
 }
+
+/* ── the wide "wells" card that leads the services grid ────────────────── */
+.card-wide {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 24px;
+  text-decoration: none;
+  margin-bottom: 22px;
+  border-color: var(--silver-300);
+  background: linear-gradient(120deg, #fff 0%, var(--silver-050) 100%);
+}
+.card-wide::before { background: linear-gradient(90deg, var(--sky), var(--sky-dim), transparent); }
+.card-wide .card-icon { margin-bottom: 0; width: 60px; height: 60px; }
+.card-wide .card-icon svg { width: 29px; height: 29px; }
+.card-wide-body h3 { margin-bottom: 8px; }
+.card-wide-body p { margin: 0; font-size: 1rem; color: var(--silver-600); max-width: 68ch; }
+.card-wide-body strong { color: var(--ink); }
+.card-wide-go {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: .95rem;
+  color: var(--sky-dim);
+  white-space: nowrap;
+  transition: transform .25s var(--ease), color .2s var(--ease);
+}
+.card-wide:hover .card-wide-go { color: var(--ink); transform: translateX(4px); }
+
+@media (max-width: 1000px) {
+  .card-wide { grid-template-columns: auto 1fr; }
+  .card-wide-go { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .card-wide { grid-template-columns: 1fr; gap: 16px; }
+  .card-wide .card-icon { margin-bottom: 0; }
+}
