@@ -53,13 +53,13 @@ step if you need one; do not retune the anchors.
 | (434) 429-3005 | his van lettering and every listing | yes — and it takes texts |
 | hallsplumbingva@gmail.com | his van lettering | yes |
 | 4.5 stars / 88 Google reviews | his Google profile, 17 Sep 2026 | yes, will drift |
-| Open 24 hours | his Google profile | yes |
+| ~~Open 24 hours~~ | his Google profile | **REMOVED 26 Sep at Jerry's request** — he does not want to advertise 24/7 or take 2 a.m. calls. His Google listing still says 24 hours. |
 | Submersible pumps, pulls them himself | **Jerry, direct** | yes |
 | A+ BBB rating | BBB profile | re-check occasionally |
 | "30+ years in the trade" | his own listing copy | **unconfirmed by Jerry** |
 | "Free estimates" | his own listing copy | **unconfirmed by Jerry** |
 | "Licensed · Bonded · Insured" | his van lettering | **unconfirmed by Jerry** |
-| "usually the same day" | written by us | **unconfirmed by Jerry** |
+| ~~"usually the same day"~~ | written by us | removed 26 Sep in the wording rewrite |
 | Well items beyond the pumps | written from his reviews | **unconfirmed by Jerry** |
 | Founding year | **MISSING** — see the TODO in the About section | 2013 is only the LLC filing date |
 
